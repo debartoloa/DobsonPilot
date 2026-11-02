@@ -1,0 +1,24 @@
+{
+  "name": "Dobson Pilot",
+  "short_name": "DobsonPilot",
+  "description": "PWA open-source per telescopio Dobson motorizzato via Web Bluetooth",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#030408",
+  "theme_color": "#030408",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><circle cx='96' cy='96' r='90' fill='%2305070c' stroke='%23e5a93c' stroke-width='10'/><circle cx='96' cy='96' r='20' fill='%23e5a93c'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><circle cx='256' cy='256' r='240' fill='%2305070c' stroke='%23e5a93c' stroke-width='24'/><circle cx='256' cy='256' r='50' fill='%23e5a93c'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

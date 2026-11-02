@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Dobson Pilot</title>
+  <meta name="description" content="PWA open-source per il controllo di telescopi Dobson motorizzati via Web Bluetooth">
+  
+  <!-- PWA Meta & Icons -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#030408">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dobson Pilot">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2305070c' stroke='%23e5a93c' stroke-width='6'/><path d='M30 70 L70 30 M70 30 L55 30 M70 30 L70 45' stroke='%23e5a93c' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='50' cy='50' r='10' fill='%23e5a93c'/></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=9.0">
+</head>
+<body>
+  <!-- Dynamic Celestial Starfield Background -->
+  <canvas id="starfield-canvas"></canvas>
+
+  <!-- Main PWA Shell -->
+  <div id="app-container">
+    <!-- Top 3-Phase Status Bar -->
+    <header id="status-bar-container"></header>
+
+    <!-- Dynamic Screen Router View -->
+    <main id="main-view"></main>
+  </div>
+
+  <!-- Onboarding Modal (Terms & Conditions / Language on first run) -->
+  <div id="onboarding-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+      <h2 class="modal-title">Benvenuto in Dobson Pilot</h2>
+      <div class="modal-body">
+        <p><strong>Dobson Pilot</strong> è un client PWA open-source (Licenza MIT) compatibile con il firmware ESP32 CosmoPilot DIY v2.0.</p>
+        <br>
+        <p><strong>Avvertenza di Sicurezza:</strong> Questo software comanda motori ad alta coppia su un telescopio fisico. Assicurarsi sempre che l'area attorno al tubo sia libera da ostacoli o cavi prima di muovere il telescopio.</p>
+        <br>
+        <p><strong>Pericolo Solare:</strong> Non puntare mai il Sole senza adeguato filtro certificato a tutta apertura. Rischio di lesioni permanenti alla vista.</p>
+      </div>
+      <button class="btn-gold btn-block" id="btn-accept-terms">
+        Accetta e Continua
+      </button>
+    </div>
+  </div>
+
+  <!-- App Entrypoint with Version Cache Buster -->
+  <script type="module" src="js/app.js?v=9.0"></script>
+</body>
+</html>
