@@ -436,7 +436,7 @@ export class CalendarView {
     btn.disabled = true;
     btn.textContent = "Sincronizzazione in corso...";
     feedback.style.display = "block";
-    feedback.style.background = "rgba(229, 169, 60, 0.15)";
+    feedback.style.background = "rgba(168, 85, 247, 0.18)";
     feedback.style.color = "var(--gold-highlight)";
     feedback.textContent = "Rilevamento coordinate GPS...";
 

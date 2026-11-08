@@ -1,34 +1,42 @@
 /*
  * Dobson Pilot - Modern Mobile-First Deep Space & Glassmorphism UI
- * Redesigned layout & tactile ergonomics for astronomical night observation.
+ * Palette: Deep Midnight Navy, Frosted Slate Glass, Crisp White & Cosmic Violet
  * Preserves 100% compatibility with all existing DOM IDs, classes, and Night Mode.
  */
 
 :root {
-  /* Deep Space Palette */
-  --bg-color: #04060e;
-  --bg-gradient: radial-gradient(ellipse at 50% 0%, rgba(22, 31, 64, 0.55) 0%, rgba(7, 10, 22, 0.85) 55%, #03040a 100%);
+  /* Deep Space Midnight Navy & Indigo Palette */
+  --bg-color: #060b16;
+  --bg-gradient:
+    radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 15%, rgba(56, 189, 248, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(15, 26, 52, 0.9) 0%, #050914 75%);
   
-  /* Frosted Glass Surfaces */
-  --panel-bg: rgba(14, 19, 34, 0.68);
-  --panel-bg-elevated: rgba(20, 27, 46, 0.78);
-  --panel-bg-subtle: rgba(10, 14, 26, 0.55);
-  --glass-blur: blur(18px) saturate(165%);
-  --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-  --glass-shadow: 0 12px 32px -6px rgba(0, 0, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.45);
+  /* Frosted Glass Surfaces (Cohesive with Deep Navy Backdrop) */
+  --panel-bg: rgba(11, 18, 34, 0.78);
+  --panel-bg-elevated: rgba(17, 27, 50, 0.86);
+  --panel-bg-subtle: rgba(8, 13, 26, 0.65);
+  --glass-blur: blur(18px) saturate(170%);
+  --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 12px 32px -6px rgba(2, 5, 14, 0.75), 0 4px 14px rgba(0, 0, 0, 0.45);
 
-  /* Celestial Amber / Gold Accents */
-  --gold-primary: #f0ab3e;
-  --gold-glow: rgba(240, 171, 62, 0.38);
-  --gold-dim: rgba(240, 171, 62, 0.14);
-  --gold-border: rgba(240, 171, 62, 0.32);
-  --gold-border-strong: rgba(240, 171, 62, 0.65);
-  --gold-text: #f3d292;
-  --gold-highlight: #ffe6b3;
+  /* Cosmic Violet & Crisp White Accents (Mapped to existing --gold-* tokens) */
+  --gold-primary: #a855f7;
+  --gold-glow: rgba(168, 85, 247, 0.40);
+  --gold-dim: rgba(168, 85, 247, 0.16);
+  --gold-border: rgba(168, 85, 247, 0.28);
+  --gold-border-strong: rgba(192, 132, 252, 0.65);
+  --gold-text: #e2e8f0;
+  --gold-highlight: #ffffff;
+
+  /* Secondary Celestial Cyan / Slate Tokens */
+  --violet-accent: #c084fc;
+  --cyan-accent: #38bdf8;
+  --card-border-subtle: rgba(148, 163, 184, 0.16);
 
   /* Typography & Neutral Tones */
-  --text-muted: #94a0b8;
-  --text-dim: #5e6a82;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
   
   /* Semantic Status Colors */
   --danger-color: #ff5252;
@@ -38,7 +46,7 @@
 
   /* Font Stacks */
   --font-main: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
-  --font-title: "Cinzel", "Outfit", "Eurostile", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-title: "Outfit", "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
   /* Safe Area & Spacing */
@@ -46,7 +54,7 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --radius-sm: 10px;
   --radius-md: 16px;
-  --radius-lg: 22px;
+  --radius-lg: 20px;
   --radius-pill: 9999px;
 }
 
@@ -67,6 +75,9 @@ body.night-mode {
   --gold-border-strong: rgba(255, 80, 80, 0.75);
   --gold-text: #ff7a7a;
   --gold-highlight: #ffb3b3;
+  --violet-accent: #ff5252;
+  --cyan-accent: #ff5252;
+  --card-border-subtle: rgba(230, 46, 46, 0.3);
   --text-muted: #a64444;
   --text-dim: #6b2222;
   --success-color: #e62e2e;
@@ -113,7 +124,7 @@ html, body {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.92;
+  opacity: 0.95;
 }
 
 #app-container {
@@ -146,10 +157,10 @@ html, body {
    ========================================= */
 #status-bar-container {
   width: 100%;
-  background: rgba(7, 10, 20, 0.75);
+  background: rgba(8, 13, 26, 0.82);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
   z-index: 20;
 }
@@ -168,10 +179,10 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(3, 5, 12, 0.55);
+  background: rgba(5, 9, 18, 0.65);
   padding: 5px 12px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -179,7 +190,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  opacity: 0.4;
+  opacity: 0.42;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -196,8 +207,8 @@ html, body {
 }
 
 .phase-segment.active .phase-dot {
-  background: var(--gold-primary);
-  box-shadow: 0 0 10px var(--gold-primary), 0 0 4px #fff;
+  background: var(--violet-accent);
+  box-shadow: 0 0 10px var(--gold-primary), 0 0 4px #ffffff;
 }
 
 .phase-label {
@@ -208,20 +219,20 @@ html, body {
 }
 
 .phase-segment.active .phase-label {
-  color: var(--gold-highlight);
-  text-shadow: 0 0 8px var(--gold-glow);
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--gold-glow);
 }
 
 .phase-connector {
   width: 14px;
   height: 2px;
   border-radius: 2px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(148, 163, 184, 0.16);
   transition: all 0.35s ease;
 }
 
 .phase-connector.active {
-  background: linear-gradient(90deg, var(--gold-primary), var(--gold-highlight));
+  background: linear-gradient(90deg, var(--gold-primary), var(--violet-accent));
   box-shadow: 0 0 8px var(--gold-glow);
 }
 
@@ -238,8 +249,8 @@ html, body {
   letter-spacing: 1px;
   padding: 5px 9px;
   border-radius: var(--radius-pill);
-  background: rgba(15, 20, 34, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 19, 36, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.14);
   color: var(--text-dim);
   transition: all 0.3s ease;
 }
@@ -255,9 +266,9 @@ html, body {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: linear-gradient(145deg, rgba(26, 34, 56, 0.85), rgba(14, 19, 34, 0.9));
-  border: 1px solid var(--gold-border);
-  color: var(--gold-text);
+  background: linear-gradient(145deg, rgba(22, 32, 58, 0.85), rgba(12, 19, 36, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: #f8fafc;
   padding: 6px 13px;
   min-height: 34px;
   border-radius: var(--radius-pill);
@@ -274,10 +285,10 @@ html, body {
 }
 
 .ble-pill-btn.connected {
-  background: linear-gradient(145deg, rgba(240, 171, 62, 0.22), rgba(240, 171, 62, 0.08));
-  border-color: var(--gold-primary);
-  color: var(--gold-highlight);
-  box-shadow: 0 0 14px var(--gold-glow), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.26), rgba(124, 58, 237, 0.14));
+  border-color: var(--violet-accent);
+  color: #ffffff;
+  box-shadow: 0 0 16px var(--gold-glow), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 /* =========================================
@@ -334,9 +345,9 @@ html, body {
   background: var(--panel-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: var(--radius-pill);
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -347,7 +358,7 @@ html, body {
 }
 
 .btn-header-back:hover {
-  border-color: var(--gold-border-strong);
+  border-color: var(--violet-accent);
   background: var(--panel-bg-elevated);
 }
 
@@ -361,7 +372,7 @@ html, body {
   font-size: 19px;
   font-weight: 700;
   letter-spacing: 1.8px;
-  color: var(--gold-highlight);
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   text-shadow: 0 2px 14px var(--gold-glow);
@@ -374,7 +385,7 @@ html, body {
   border-radius: 2px;
   background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
   margin: -6px auto 22px auto;
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 /* =========================================
@@ -393,7 +404,7 @@ html, body {
   font-weight: 800;
   letter-spacing: 4.5px;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #ffffff 0%, var(--gold-highlight) 45%, var(--gold-primary) 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 45%, var(--violet-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 4px 18px var(--gold-glow));
@@ -427,15 +438,15 @@ body.night-mode .home-logo-title {
   position: relative;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, rgba(22, 30, 52, 0.72) 0%, rgba(12, 16, 30, 0.78) 100%);
+  background: linear-gradient(135deg, rgba(16, 25, 46, 0.82) 0%, rgba(10, 16, 32, 0.88) 100%);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(240, 171, 62, 0.26);
-  border-top-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  border-top-color: rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-lg);
   padding: 13px 18px;
   min-height: 68px;
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.4px;
@@ -454,8 +465,8 @@ body.night-mode .menu-btn {
   content: "›";
   font-size: 24px;
   font-weight: 400;
-  color: var(--gold-primary);
-  opacity: 0.65;
+  color: var(--violet-accent);
+  opacity: 0.75;
   margin-left: 12px;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -473,22 +484,22 @@ body.night-mode .menu-btn {
 
 .menu-btn:active {
   transform: scale(0.975);
-  background: linear-gradient(135deg, rgba(240, 171, 62, 0.2), rgba(20, 27, 46, 0.85));
-  border-color: var(--gold-highlight);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(16, 25, 46, 0.9));
+  border-color: var(--violet-accent);
 }
 
 .menu-btn-icon {
   width: 46px;
   height: 46px;
   border-radius: 14px;
-  background: linear-gradient(145deg, rgba(240, 171, 62, 0.18), rgba(240, 171, 62, 0.05));
-  border: 1px solid rgba(240, 171, 62, 0.3);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 4px 10px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(145deg, rgba(168, 85, 247, 0.22), rgba(124, 58, 237, 0.08));
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 4px 10px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 16px;
-  color: var(--gold-primary);
+  color: var(--violet-accent);
   font-size: 22px;
   flex-shrink: 0;
 }
@@ -520,25 +531,25 @@ body.night-mode .menu-btn {
   width: 124px;
   height: 52px;
   border-radius: var(--radius-pill);
-  background: linear-gradient(145deg, rgba(24, 33, 58, 0.8), rgba(12, 17, 32, 0.88));
+  background: linear-gradient(145deg, rgba(20, 30, 56, 0.85), rgba(11, 18, 34, 0.92));
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1.5px solid var(--gold-border-strong);
-  color: var(--gold-primary);
+  color: #ffffff;
   cursor: pointer;
-  box-shadow: var(--glass-highlight), 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 15px var(--gold-dim);
+  box-shadow: var(--glass-highlight), 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 16px var(--gold-dim);
   transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .ble-main-btn svg {
   width: 24px;
   height: 24px;
-  fill: currentColor;
+  fill: var(--violet-accent);
 }
 
 .ble-main-btn:hover {
   border-color: var(--gold-primary);
-  box-shadow: 0 0 20px var(--gold-glow);
+  box-shadow: 0 0 22px var(--gold-glow);
   transform: translateY(-2px);
 }
 
@@ -560,8 +571,8 @@ body.night-mode .menu-btn {
   background: var(--panel-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--gold-border);
-  color: var(--gold-primary);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -573,13 +584,13 @@ body.night-mode .menu-btn {
 .btn-footer-home svg {
   width: 26px;
   height: 26px;
-  fill: currentColor;
+  fill: var(--violet-accent);
 }
 
 .btn-footer-home:hover {
   border-color: var(--gold-primary);
-  color: var(--gold-highlight);
-  box-shadow: 0 0 16px var(--gold-glow);
+  color: #ffffff;
+  box-shadow: 0 0 18px var(--gold-glow);
   transform: translateY(-2px);
 }
 
@@ -595,7 +606,7 @@ body.night-mode .menu-btn {
   background: var(--panel-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(240, 171, 62, 0.24);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   border-top-color: rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
   padding: 18px;
@@ -605,6 +616,7 @@ body.night-mode .menu-btn {
 }
 
 body.night-mode .config-card {
+  border-color: var(--gold-border);
   border-top-color: rgba(255, 80, 80, 0.2);
 }
 
@@ -612,7 +624,7 @@ body.night-mode .config-card {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  color: var(--gold-highlight);
+  color: #ffffff;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -630,11 +642,11 @@ body.night-mode .config-card {
    ERGONOMIC TOUCH BUTTONS (.btn-gold, .btn-sm)
    ========================================= */
 .btn-gold {
-  background: linear-gradient(135deg, rgba(240, 171, 62, 0.28) 0%, rgba(214, 138, 30, 0.16) 100%);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.32) 0%, rgba(109, 40, 217, 0.20) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1.5px solid var(--gold-primary);
-  color: var(--gold-highlight);
+  color: #ffffff;
   padding: 13px 22px;
   border-radius: 14px;
   font-size: 15px;
@@ -646,19 +658,20 @@ body.night-mode .config-card {
   justify-content: center;
   gap: 8px;
   min-height: 52px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(240, 171, 62, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 14px rgba(168, 85, 247, 0.18);
   transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-gold:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(240, 171, 62, 0.38) 0%, rgba(214, 138, 30, 0.24) 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 20px var(--gold-glow);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.44) 0%, rgba(124, 58, 237, 0.28) 100%);
+  border-color: var(--violet-accent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 22px var(--gold-glow);
   transform: translateY(-1px);
 }
 
 .btn-gold:active:not(:disabled) {
   transform: scale(0.975);
-  background: rgba(240, 171, 62, 0.35);
+  background: rgba(168, 85, 247, 0.38);
 }
 
 .btn-gold:disabled, .btn-sm:disabled {
@@ -671,11 +684,11 @@ body.night-mode .config-card {
 }
 
 .btn-sm {
-  background: rgba(18, 25, 44, 0.78);
+  background: rgba(16, 25, 46, 0.82);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--gold-border);
-  color: var(--gold-text);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  color: #f8fafc;
   padding: 9px 14px;
   min-height: 40px;
   border-radius: 11px;
@@ -695,9 +708,10 @@ body.night-mode .btn-sm {
 }
 
 .btn-sm:hover:not(:disabled) {
-  border-color: var(--gold-primary);
-  color: var(--gold-highlight);
-  background: rgba(28, 38, 64, 0.88);
+  border-color: var(--violet-accent);
+  color: #ffffff;
+  background: rgba(26, 38, 68, 0.9);
+  box-shadow: 0 0 12px var(--gold-dim);
 }
 
 .btn-sm:active:not(:disabled) {
@@ -718,7 +732,7 @@ body.night-mode .btn-sm {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 140px);
-  background: rgba(5, 8, 16, 0.9);
+  background: rgba(6, 10, 20, 0.92);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--gold-border);
@@ -732,14 +746,14 @@ body.night-mode .btn-sm {
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background: rgba(12, 17, 32, 0.92);
+  background: rgba(12, 19, 36, 0.94);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .debug-title {
   font-size: 13px;
   font-weight: 700;
-  color: var(--gold-highlight);
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -755,7 +769,7 @@ body.night-mode .btn-sm {
   align-items: center;
   gap: 8px;
   padding: 10px 14px;
-  background: rgba(8, 12, 24, 0.75);
+  background: rgba(8, 13, 26, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   overflow-x: auto;
 }
@@ -776,8 +790,8 @@ body.night-mode .btn-sm {
 .filter-chip.active {
   background: var(--gold-dim);
   border-color: var(--gold-primary);
-  color: var(--gold-highlight);
-  box-shadow: 0 0 10px rgba(240, 171, 62, 0.2);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.25);
 }
 
 .autoscroll-label {
@@ -796,7 +810,7 @@ body.night-mode .btn-sm {
   padding: 10px 12px;
   font-family: var(--font-mono);
   font-size: 12px;
-  background: rgba(2, 4, 10, 0.92);
+  background: rgba(4, 7, 15, 0.94);
 }
 
 .log-row {
@@ -837,9 +851,9 @@ body.night-mode .btn-sm {
 }
 
 .badge-info {
-  background: rgba(250, 204, 21, 0.18);
-  color: #facc15;
-  border: 1px solid rgba(250, 204, 21, 0.4);
+  background: rgba(168, 85, 247, 0.20);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.45);
 }
 
 .badge-error {
@@ -870,14 +884,14 @@ body.night-mode .btn-sm {
   flex-wrap: wrap;
   gap: 6px;
   padding: 10px 12px;
-  background: rgba(12, 17, 32, 0.92);
+  background: rgba(12, 19, 36, 0.94);
   border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .btn-preset {
-  background: rgba(240, 171, 62, 0.1);
+  background: rgba(168, 85, 247, 0.12);
   border: 1px solid var(--gold-border);
-  color: var(--gold-text);
+  color: #f8fafc;
   padding: 6px 11px;
   border-radius: 8px;
   font-size: 11px;
@@ -895,13 +909,13 @@ body.night-mode .btn-sm {
   display: flex;
   padding: 10px 12px;
   gap: 8px;
-  background: rgba(8, 12, 24, 0.96);
+  background: rgba(8, 13, 26, 0.96);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #input-debug-cmd {
   flex: 1;
-  background: rgba(3, 5, 12, 0.9);
+  background: rgba(4, 7, 15, 0.9);
   border: 1px solid var(--gold-border);
   color: #fff;
   padding: 10px 14px;
@@ -932,7 +946,7 @@ body.night-mode .btn-sm {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(2, 4, 12, 0.82);
+  background: rgba(3, 6, 14, 0.84);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   z-index: 100;
@@ -943,7 +957,7 @@ body.night-mode .btn-sm {
 }
 
 .modal-content {
-  background: linear-gradient(160deg, rgba(20, 28, 48, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
+  background: linear-gradient(160deg, rgba(17, 26, 48, 0.96) 0%, rgba(9, 14, 28, 0.98) 100%);
   border: 1.5px solid var(--gold-primary);
   border-radius: var(--radius-lg);
   max-width: 480px;
@@ -960,7 +974,7 @@ body.night-mode .modal-content {
 
 .modal-title {
   font-family: var(--font-title);
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 21px;
   letter-spacing: 1px;
   margin-bottom: 16px;
@@ -1005,7 +1019,7 @@ body.night-mode .modal-content {
 
 /* Live Coordinates Telemetry Card */
 .coords-card {
-  background: linear-gradient(145deg, rgba(16, 23, 42, 0.85), rgba(9, 13, 25, 0.9));
+  background: linear-gradient(145deg, rgba(14, 22, 42, 0.86), rgba(9, 14, 28, 0.92));
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--gold-border);
@@ -1037,7 +1051,7 @@ body.night-mode .coords-card {
   font-size: 12.5px;
   font-weight: 800;
   letter-spacing: 1.4px;
-  color: var(--gold-primary);
+  color: var(--violet-accent);
 }
 
 .coord-values {
@@ -1046,8 +1060,8 @@ body.night-mode .coords-card {
 }
 
 .coord-box {
-  background: rgba(3, 5, 12, 0.88);
-  border: 1px solid rgba(240, 171, 62, 0.35);
+  background: rgba(4, 7, 15, 0.88);
+  border: 1px solid rgba(168, 85, 247, 0.35);
   border-radius: 8px;
   padding: 5px 10px;
   font-family: var(--font-mono);
@@ -1061,7 +1075,7 @@ body.night-mode .coords-card {
 }
 
 .coord-box small {
-  color: var(--gold-primary);
+  color: var(--violet-accent);
   font-size: 10px;
   margin-left: 2px;
 }
@@ -1071,7 +1085,7 @@ body.night-mode .coords-card {
   background: var(--panel-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(240, 171, 62, 0.24);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   border-top-color: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   padding: 14px 16px;
@@ -1088,7 +1102,7 @@ body.night-mode .coords-card {
 }
 
 .speed-deg-sec {
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
@@ -1104,7 +1118,7 @@ body.night-mode .coords-card {
   height: 10px;
   -webkit-appearance: none;
   appearance: none;
-  background: rgba(4, 7, 15, 0.9);
+  background: rgba(5, 9, 18, 0.92);
   border-radius: var(--radius-pill);
   outline: none;
   border: 1px solid var(--gold-border);
@@ -1118,7 +1132,7 @@ body.night-mode .coords-card {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--gold-highlight) 35%, var(--gold-primary) 100%);
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--violet-accent) 45%, var(--gold-primary) 100%);
   cursor: pointer;
   box-shadow: 0 0 14px var(--gold-glow), 0 2px 6px rgba(0, 0, 0, 0.6);
   border: 2px solid rgba(10, 14, 24, 0.9);
@@ -1133,7 +1147,7 @@ body.night-mode .coords-card {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--gold-highlight) 35%, var(--gold-primary) 100%);
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, var(--violet-accent) 45%, var(--gold-primary) 100%);
   cursor: pointer;
   box-shadow: 0 0 14px var(--gold-glow), 0 2px 6px rgba(0, 0, 0, 0.6);
   border: 2px solid rgba(10, 14, 24, 0.9);
@@ -1163,7 +1177,7 @@ body.night-mode .coords-card {
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-  color: var(--gold-text);
+  color: #f8fafc;
   padding: 4px 6px;
 }
 
@@ -1174,8 +1188,8 @@ body.night-mode .coords-card {
 .toggle-slider {
   width: 44px;
   height: 24px;
-  background: rgba(6, 9, 18, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(6, 10, 20, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.24);
   border-radius: var(--radius-pill);
   position: relative;
   transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1196,14 +1210,14 @@ body.night-mode .coords-card {
 }
 
 .toggle-control input:checked + .toggle-slider {
-  background: rgba(240, 171, 62, 0.32);
+  background: rgba(168, 85, 247, 0.35);
   border-color: var(--gold-primary);
   box-shadow: 0 0 12px var(--gold-dim);
 }
 
 .toggle-control input:checked + .toggle-slider::after {
   transform: translateX(20px);
-  background: var(--gold-highlight);
+  background: #ffffff;
   box-shadow: 0 0 8px var(--gold-glow);
 }
 
@@ -1248,7 +1262,7 @@ body.night-mode .coords-card {
   grid-template-columns: repeat(3, 86px);
   grid-template-rows: repeat(3, 86px);
   gap: 10px;
-  background: radial-gradient(circle at center, rgba(24, 33, 58, 0.85) 0%, rgba(10, 14, 26, 0.92) 100%);
+  background: radial-gradient(circle at center, rgba(20, 30, 56, 0.88) 0%, rgba(9, 14, 28, 0.94) 100%);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   padding: 14px;
@@ -1262,11 +1276,11 @@ body.night-mode .dpad-container {
 }
 
 .dpad-btn {
-  background: linear-gradient(145deg, rgba(28, 38, 66, 0.9), rgba(15, 21, 38, 0.95));
-  border: 1.5px solid rgba(240, 171, 62, 0.32);
+  background: linear-gradient(145deg, rgba(24, 36, 64, 0.92), rgba(13, 20, 38, 0.96));
+  border: 1.5px solid rgba(168, 85, 247, 0.32);
   border-top-color: rgba(255, 255, 255, 0.16);
   border-radius: 18px;
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 24px;
   font-weight: 700;
   display: flex;
@@ -1280,6 +1294,7 @@ body.night-mode .dpad-container {
 
 body.night-mode .dpad-btn {
   background: linear-gradient(145deg, rgba(38, 8, 8, 0.92), rgba(20, 3, 3, 0.96));
+  color: var(--gold-highlight);
 }
 
 .dpad-card {
@@ -1289,8 +1304,8 @@ body.night-mode .dpad-btn {
 
 .dpad-diag {
   font-size: 20px;
-  color: var(--gold-text);
-  opacity: 0.85;
+  color: var(--violet-accent);
+  opacity: 0.9;
 }
 
 .dpad-center {
@@ -1308,8 +1323,8 @@ body.night-mode .dpad-btn {
 }
 
 .dpad-btn.btn-pressed {
-  background: linear-gradient(135deg, var(--gold-highlight), var(--gold-primary));
-  color: #04060e;
+  background: linear-gradient(135deg, var(--violet-accent), var(--gold-primary));
+  color: #ffffff;
   border-color: #ffffff;
   box-shadow: 0 0 24px var(--gold-glow);
   transform: scale(0.93);
@@ -1326,14 +1341,14 @@ body.night-mode .dpad-btn {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(6, 9, 18, 0.92);
+  background: rgba(8, 13, 26, 0.94);
   backdrop-filter: blur(10px);
   border: 1.5px solid var(--gold-primary);
   padding: 12px 22px;
   border-radius: var(--radius-pill);
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--gold-highlight);
+  color: #ffffff;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85), 0 0 16px var(--gold-dim);
   pointer-events: auto;
 }
@@ -1360,7 +1375,7 @@ body.night-mode .dpad-btn {
 .analog-title {
   font-size: 17px;
   font-weight: 700;
-  color: var(--gold-highlight);
+  color: #ffffff;
   margin-bottom: 8px;
 }
 
@@ -1411,8 +1426,8 @@ body.night-mode .dpad-btn {
 .gold-input, .gold-select {
   width: 100%;
   min-height: 46px;
-  background: rgba(5, 8, 18, 0.82);
-  border: 1px solid rgba(240, 171, 62, 0.35);
+  background: rgba(6, 10, 22, 0.86);
+  border: 1px solid rgba(168, 85, 247, 0.35);
   color: #ffffff;
   padding: 10px 14px;
   border-radius: 12px;
@@ -1430,13 +1445,13 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 
 .gold-input:focus, .gold-select:focus {
   border-color: var(--gold-primary);
-  background: rgba(8, 13, 26, 0.95);
+  background: rgba(10, 16, 32, 0.96);
   box-shadow: 0 0 0 3px var(--gold-dim), inset 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .gold-select option {
-  background: #0b1020;
-  color: var(--gold-highlight);
+  background: #0b1224;
+  color: #ffffff;
 }
 
 /* Settings Telemetry Grid */
@@ -1447,8 +1462,8 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 }
 
 .setting-item {
-  background: rgba(5, 8, 18, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(6, 10, 22, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.12);
   border-radius: 11px;
   padding: 10px 12px;
   display: flex;
@@ -1464,7 +1479,7 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 .setting-val {
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
@@ -1477,7 +1492,7 @@ body.night-mode .gold-input, body.night-mode .gold-select {
   cursor: pointer;
   font-size: 14.5px;
   font-weight: 600;
-  color: var(--gold-highlight);
+  color: #ffffff;
 }
 
 .section-apply-label input[type="checkbox"] {
@@ -1490,8 +1505,8 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 
 /* Background Theme Presets */
 .bg-preset-btn {
-  background: rgba(14, 20, 36, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(14, 22, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   border-radius: 10px;
   color: var(--gold-text);
   padding: 10px 6px;
@@ -1508,7 +1523,7 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 
 .bg-preset-btn.active {
   border-color: var(--gold-primary);
-  background: linear-gradient(135deg, rgba(240, 171, 62, 0.28), rgba(240, 171, 62, 0.1));
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.30), rgba(168, 85, 247, 0.12));
   color: #ffffff;
   box-shadow: 0 0 12px var(--gold-glow);
 }
@@ -1517,10 +1532,10 @@ body.night-mode .gold-input, body.night-mode .gold-select {
    CATALOG, ALIGNMENT & OBJECT CARDS
    ========================================= */
 .cat-shortcut-link {
-  background: rgba(240, 171, 62, 0.1);
+  background: rgba(168, 85, 247, 0.12);
   border: 1px solid var(--gold-border);
   border-radius: var(--radius-pill);
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 12.5px;
   font-weight: 600;
   text-decoration: none;
@@ -1568,11 +1583,11 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 .mini-pad-btn {
   width: 60px;
   height: 54px;
-  background: linear-gradient(145deg, rgba(24, 33, 58, 0.88), rgba(12, 17, 32, 0.94));
+  background: linear-gradient(145deg, rgba(22, 33, 60, 0.9), rgba(12, 19, 36, 0.96));
   border: 1px solid var(--gold-border);
   border-top-color: rgba(255, 255, 255, 0.14);
   border-radius: 12px;
-  color: var(--gold-highlight);
+  color: #ffffff;
   font-size: 17px;
   font-weight: 700;
   display: flex;
@@ -1588,6 +1603,7 @@ body.night-mode .gold-input, body.night-mode .gold-select {
 
 body.night-mode .mini-pad-btn {
   background: linear-gradient(145deg, rgba(34, 6, 6, 0.9), rgba(18, 2, 2, 0.95));
+  color: var(--gold-highlight);
 }
 
 .mini-pad-btn:hover {
@@ -1597,29 +1613,33 @@ body.night-mode .mini-pad-btn {
 
 .mini-pad-btn.active,
 .mini-pad-btn:active {
-  background: linear-gradient(135deg, var(--gold-highlight), var(--gold-primary));
-  color: #04060e;
-  box-shadow: 0 0 16px var(--gold-glow);
-  transform: scale(0.93);
+  background: linear-gradient(135deg, var(--violet-accent), var(--gold-primary));
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 18px var(--gold-glow);
+  transform: scale(0.92);
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Responsive tweaks for compact mobile screens */
-@media (max-width: 380px) {
+/* =========================================
+   RESPONSIVE MOBILE-FIRST REFINEMENTS
+   ========================================= */
+@media (max-width: 390px) {
   .screen-container {
-    padding: 14px 14px 22px 14px;
+    padding: 14px 14px 24px 14px;
   }
   .dpad-container {
     grid-template-columns: repeat(3, 76px);
     grid-template-rows: repeat(3, 76px);
     gap: 8px;
-    padding: 10px;
+    padding: 12px;
   }
-  .screen-title {
-    font-size: 17px;
+  .home-logo-title {
+    font-size: 25px;
+    letter-spacing: 3px;
+  }
+  .menu-btn {
+    min-height: 62px;
+    padding: 11px 14px;
+    font-size: 16px;
   }
 }

@@ -127,24 +127,24 @@ export class Starfield {
       bgGrad.addColorStop(0.5, "#0d0000");
       bgGrad.addColorStop(1, "#040000");
     } else if (this.presetIndex === 6) {
-      // Obsidian Black
-      bgGrad.addColorStop(0, "#010102");
-      bgGrad.addColorStop(1, "#030305");
+      // Obsidian Midnight
+      bgGrad.addColorStop(0, "#03050c");
+      bgGrad.addColorStop(1, "#060a16");
     } else if (this.presetIndex === 3) {
-      // Pleiades Deep Indigo
-      bgGrad.addColorStop(0, "#02040b");
-      bgGrad.addColorStop(0.5, "#040915");
-      bgGrad.addColorStop(1, "#020308");
+      // Pleiades Deep Indigo-Blue
+      bgGrad.addColorStop(0, "#040816");
+      bgGrad.addColorStop(0.5, "#081229");
+      bgGrad.addColorStop(1, "#040712");
     } else if (this.presetIndex === 2) {
-      // Orion Cosmic Violet
-      bgGrad.addColorStop(0, "#07020a");
-      bgGrad.addColorStop(0.5, "#0a0312");
-      bgGrad.addColorStop(1, "#040106");
+      // Orion Cosmic Violet-Navy
+      bgGrad.addColorStop(0, "#070616");
+      bgGrad.addColorStop(0.5, "#0d0924");
+      bgGrad.addColorStop(1, "#050611");
     } else {
-      // Default / Saturn / Amber Deep Space
-      bgGrad.addColorStop(0, "#030407");
-      bgGrad.addColorStop(0.5, "#06080e");
-      bgGrad.addColorStop(1, "#020305");
+      // Default / Saturn / Deep Space Midnight Navy & Indigo (Harmonized with UI cards)
+      bgGrad.addColorStop(0, "#050915");
+      bgGrad.addColorStop(0.5, "#0a1226");
+      bgGrad.addColorStop(1, "#040711");
     }
 
     ctx.fillStyle = bgGrad;
@@ -160,9 +160,9 @@ export class Starfield {
       planetX - 40, planetY - 40, planetRadius * 0.1,
       planetX, planetY, planetRadius
     );
-    planetGrad.addColorStop(0, "rgba(90, 75, 45, 0.45)");
-    planetGrad.addColorStop(0.5, "rgba(45, 35, 20, 0.3)");
-    planetGrad.addColorStop(0.85, "rgba(15, 12, 8, 0.8)");
+    planetGrad.addColorStop(0, "rgba(109, 72, 195, 0.28)");
+    planetGrad.addColorStop(0.5, "rgba(35, 52, 105, 0.22)");
+    planetGrad.addColorStop(0.85, "rgba(8, 14, 30, 0.75)");
     planetGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.save();
@@ -183,8 +183,10 @@ export class Starfield {
         0,
         Math.PI * 2
       );
-      const ringAlpha = (0.35 - r * 0.035).toFixed(3);
-      ctx.strokeStyle = `rgba(218, 165, 32, ${ringAlpha})`;
+      const ringAlpha = (0.28 - r * 0.028).toFixed(3);
+      ctx.strokeStyle = r % 2 === 0
+        ? `rgba(192, 132, 252, ${ringAlpha})`
+        : `rgba(148, 163, 184, ${ringAlpha})`;
       ctx.stroke();
     }
     ctx.restore();
@@ -194,9 +196,9 @@ export class Starfield {
     const cx = width * 0.75;
     const cy = height * 0.4;
     const grad = ctx.createRadialGradient(cx, cy, 10, cx, cy, width * 0.55);
-    grad.addColorStop(0, "rgba(180, 50, 140, 0.28)");
-    grad.addColorStop(0.4, "rgba(110, 30, 120, 0.15)");
-    grad.addColorStop(0.8, "rgba(40, 15, 60, 0.05)");
+    grad.addColorStop(0, "rgba(168, 85, 247, 0.26)");
+    grad.addColorStop(0.4, "rgba(109, 40, 217, 0.14)");
+    grad.addColorStop(0.8, "rgba(30, 27, 75, 0.06)");
     grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.save();
@@ -211,8 +213,8 @@ export class Starfield {
     const cx = width * 0.3;
     const cy = height * 0.35;
     const grad = ctx.createRadialGradient(cx, cy, 20, cx, cy, width * 0.5);
-    grad.addColorStop(0, "rgba(70, 140, 230, 0.25)");
-    grad.addColorStop(0.5, "rgba(30, 80, 160, 0.12)");
+    grad.addColorStop(0, "rgba(56, 189, 248, 0.22)");
+    grad.addColorStop(0.5, "rgba(30, 64, 175, 0.12)");
     grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.save();
@@ -232,9 +234,9 @@ export class Starfield {
     ctx.rotate(-Math.PI / 5);
 
     const grad = ctx.createRadialGradient(0, 0, 10, 0, 0, width * 0.45);
-    grad.addColorStop(0, "rgba(240, 220, 180, 0.35)");
-    grad.addColorStop(0.3, "rgba(180, 150, 110, 0.18)");
-    grad.addColorStop(0.7, "rgba(60, 50, 40, 0.06)");
+    grad.addColorStop(0, "rgba(241, 245, 249, 0.30)");
+    grad.addColorStop(0.3, "rgba(168, 85, 247, 0.18)");
+    grad.addColorStop(0.7, "rgba(30, 41, 59, 0.06)");
     grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.scale(1.8, 0.6);
@@ -248,16 +250,16 @@ export class Starfield {
 
   drawDeepSpaceDust(ctx, width, height) {
     const cx = width * 0.5;
-    const cy = height * 0.7;
-    const grad = ctx.createRadialGradient(cx, cy, 30, cx, cy, width * 0.6);
-    grad.addColorStop(0, "rgba(229, 169, 60, 0.12)");
-    grad.addColorStop(0.5, "rgba(140, 90, 25, 0.05)");
+    const cy = height * 0.35;
+    const grad = ctx.createRadialGradient(cx, cy, 30, cx, cy, width * 0.65);
+    grad.addColorStop(0, "rgba(139, 92, 246, 0.14)");
+    grad.addColorStop(0.5, "rgba(30, 58, 138, 0.07)");
     grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
     ctx.save();
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(cx, cy, width * 0.6, 0, Math.PI * 2);
+    ctx.arc(cx, cy, width * 0.65, 0, Math.PI * 2);
     ctx.fill();
     ctx.restore();
   }
@@ -275,13 +277,13 @@ export class Starfield {
       if (isNightMode) {
         ctx.fillStyle = `rgba(255, 60, 60, ${star.alpha.toFixed(2)})`;
       } else if (star.hue === "blue") {
-        ctx.fillStyle = `rgba(190, 220, 255, ${star.alpha.toFixed(2)})`;
+        ctx.fillStyle = `rgba(186, 230, 253, ${star.alpha.toFixed(2)})`;
       } else if (star.hue === "magenta") {
-        ctx.fillStyle = `rgba(255, 190, 230, ${star.alpha.toFixed(2)})`;
+        ctx.fillStyle = `rgba(233, 213, 255, ${star.alpha.toFixed(2)})`;
       } else if (star.hue === "amber") {
-        ctx.fillStyle = `rgba(255, 215, 130, ${star.alpha.toFixed(2)})`;
+        ctx.fillStyle = `rgba(216, 180, 254, ${star.alpha.toFixed(2)})`;
       } else {
-        ctx.fillStyle = `rgba(255, 235, 190, ${star.alpha.toFixed(2)})`;
+        ctx.fillStyle = `rgba(248, 250, 252, ${star.alpha.toFixed(2)})`;
       }
       ctx.fill();
     }

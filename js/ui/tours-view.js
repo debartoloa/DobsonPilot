@@ -103,7 +103,7 @@ export class ToursView {
             <em>Nessun tour osservativo programmato.<br>Premi "+ Plan Tour" per creare la tua prima sessione.</em>
           </div>
         ` : tours.map(t => `
-          <div class="config-card" style="padding: 14px; margin-bottom: 0; border-color: rgba(229,169,60,0.35);">
+          <div class="config-card" style="padding: 14px; margin-bottom: 0; border-color: rgba(168,85,247,0.35);">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
               <div>
                 <strong style="color: var(--gold-highlight); font-size: 16px;">${t.name}</strong>
@@ -111,7 +111,7 @@ export class ToursView {
                   📅 ${t.session.date} ore ${t.session.startTime} (${t.session.durationMin / 60}h)
                 </div>
               </div>
-              <span style="font-size: 11px; background: rgba(229,169,60,0.15); border: 1px solid var(--gold-dim); color: var(--gold-highlight); padding: 2px 8px; border-radius: 12px; font-weight: 700;">
+              <span style="font-size: 11px; background: rgba(168,85,247,0.18); border: 1px solid var(--gold-dim); color: var(--gold-highlight); padding: 2px 8px; border-radius: 12px; font-weight: 700;">
                 ${t.objects.length} Oggetti
               </span>
             </div>
@@ -349,7 +349,7 @@ export class ToursView {
             const badgeColor = item.visType === "Whole session" ? "#2ecc71" : "#e67e22";
 
             return `
-              <div class="config-card" style="padding: 10px 12px; margin-bottom: 0; border-color: ${isSelected ? 'var(--gold-primary)' : 'rgba(229,169,60,0.2)'}; background: ${isSelected ? 'rgba(229,169,60,0.1)' : 'rgba(14,12,8,0.7)'};">
+              <div class="config-card" style="padding: 10px 12px; margin-bottom: 0; border-color: ${isSelected ? 'var(--gold-primary)' : 'rgba(168,85,247,0.22)'}; background: ${isSelected ? 'rgba(168,85,247,0.14)' : 'rgba(10,16,32,0.75)'};">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <div>
                     <div style="display: flex; align-items: center; gap: 8px;">
@@ -363,7 +363,7 @@ export class ToursView {
                     </div>
                   </div>
 
-                  <button class="btn-sm btn-toggle-select-obj" data-id="${item.id}" style="padding: 6px 12px; font-size: 12px; ${isSelected ? 'background: var(--gold-primary); color: #030408; font-weight: 700;' : ''}">
+                  <button class="btn-sm btn-toggle-select-obj" data-id="${item.id}" style="padding: 6px 12px; font-size: 12px; ${isSelected ? 'background: var(--gold-primary); color: #ffffff; font-weight: 700;' : ''}">
                     ${isSelected ? '✓ Rimuovi' : '+ Aggiungi'}
                   </button>
                 </div>

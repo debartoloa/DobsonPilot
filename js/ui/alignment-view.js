@@ -220,7 +220,7 @@ export class AlignmentView {
       </div>
 
       ${starNumber === 2 && this.state.star1 ? `
-        <div class="config-card" style="padding: 10px 14px; margin-bottom: 12px; background: rgba(229,169,60,0.06);">
+        <div class="config-card" style="padding: 10px 14px; margin-bottom: 12px; background: rgba(168,85,247,0.08);">
           <div style="font-size: 11px; color: var(--text-muted);">Prima stella selezionata:</div>
           <strong style="color: var(--gold-highlight); font-size: 14px;">${this.state.star1.name}</strong>
           <span style="font-size: 11px; color: var(--gold-text); margin-left: 8px;">(Scegli una stella con separazione ≥ 30°)</span>
@@ -349,7 +349,7 @@ export class AlignmentView {
       }
 
       return `
-        <div class="config-card star-calib-row" data-id="${star.id}" style="padding: 10px 14px; margin-bottom: 0; cursor: pointer; transition: all 0.2s; border-color: rgba(229,169,60,0.3);">
+        <div class="config-card star-calib-row" data-id="${star.id}" style="padding: 10px 14px; margin-bottom: 0; cursor: pointer; transition: all 0.2s; border-color: rgba(168,85,247,0.3);">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <div style="min-width: 0;">
               <div style="display: flex; align-items: center; gap: 8px;">
@@ -434,7 +434,7 @@ export class AlignmentView {
       </div>
 
       <!-- Instructions & Centering Methods -->
-      <div class="config-card" style="margin-bottom: 14px; background: rgba(229,169,60,0.05);">
+      <div class="config-card" style="margin-bottom: 14px; background: rgba(168,85,247,0.06);">
         <strong style="color: var(--gold-primary); font-size: 13px; display: block; margin-bottom: 4px;">
           ${starNumber === 1 ? '🎯 Centratura manuale' : '🎯 Centratura fine'}
         </strong>
@@ -468,7 +468,7 @@ export class AlignmentView {
           <button class="mini-pad-btn" data-dir="UP">▲</button>
           <button class="mini-pad-btn" data-dir="URIGHT">↗</button>
           <button class="mini-pad-btn" data-dir="LEFT">◀</button>
-          <button class="mini-pad-btn mini-pad-center" data-dir="STOP" style="background: rgba(229,169,60,0.2); border-color: var(--gold-primary); font-size: 10px;">STOP</button>
+          <button class="mini-pad-btn mini-pad-center" data-dir="STOP" style="background: rgba(168,85,247,0.22); border-color: var(--gold-primary); font-size: 10px;">STOP</button>
           <button class="mini-pad-btn" data-dir="RIGHT">▶</button>
           <button class="mini-pad-btn" data-dir="DLEFT">↙</button>
           <button class="mini-pad-btn" data-dir="DOWN">▼</button>

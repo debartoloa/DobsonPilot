@@ -55,7 +55,7 @@ export class JoystickView {
       <div class="screen-divider"></div>
 
       ${!appState.connected ? `
-        <div class="config-card" id="banner-disconnected-hint" style="border-color: rgba(241, 196, 15, 0.4); background: rgba(25, 20, 10, 0.85); padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+        <div class="config-card" id="banner-disconnected-hint" style="border-color: rgba(168, 85, 247, 0.4); background: rgba(16, 20, 42, 0.85); padding: 10px 14px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
           <span style="font-size: 12px; color: var(--gold-highlight);">
             ⚠️ Telescopio non connesso.
           </span>

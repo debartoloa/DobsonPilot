@@ -205,16 +205,16 @@ export class CatalogView {
   getThumbnailSvg(item) {
     const t = (item.type || "").toLowerCase();
     if (t.includes("galaxy")) {
-      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><ellipse cx="50" cy="50" rx="38" ry="18" fill="none" stroke="#e5a93c" stroke-width="2.5" transform="rotate(-25 50 50)"/><circle cx="50" cy="50" r="10" fill="#f0c56d"/><path d="M20 60 Q50 30 80 40" stroke="#f3be53" fill="none" stroke-width="1.5"/></svg>`;
+      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><ellipse cx="50" cy="50" rx="38" ry="18" fill="none" stroke="#a855f7" stroke-width="2.5" transform="rotate(-25 50 50)"/><circle cx="50" cy="50" r="10" fill="#e2e8f0"/><path d="M20 60 Q50 30 80 40" stroke="#c084fc" fill="none" stroke-width="1.5"/></svg>`;
     }
     if (t.includes("star")) {
-      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><polygon points="50,15 61,38 86,40 66,58 72,83 50,70 28,83 34,58 14,40 39,38" fill="#f0c56d" stroke="#e5a93c" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="#ffffff"/></svg>`;
+      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><polygon points="50,15 61,38 86,40 66,58 72,83 50,70 28,83 34,58 14,40 39,38" fill="#c084fc" stroke="#a855f7" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="#ffffff"/></svg>`;
     }
     if (t.includes("globular")) {
-      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><circle cx="50" cy="50" r="28" fill="none" stroke="#e5a93c" stroke-dasharray="3,3"/><circle cx="50" cy="50" r="14" fill="#f0c56d" opacity="0.8"/><circle cx="42" cy="45" r="3" fill="#fff"/><circle cx="58" cy="52" r="3" fill="#fff"/><circle cx="50" cy="40" r="3" fill="#fff"/><circle cx="52" cy="60" r="3" fill="#fff"/></svg>`;
+      return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><circle cx="50" cy="50" r="28" fill="none" stroke="#a855f7" stroke-dasharray="3,3"/><circle cx="50" cy="50" r="14" fill="#c084fc" opacity="0.8"/><circle cx="42" cy="45" r="3" fill="#fff"/><circle cx="58" cy="52" r="3" fill="#fff"/><circle cx="50" cy="40" r="3" fill="#fff"/><circle cx="52" cy="60" r="3" fill="#fff"/></svg>`;
     }
     // Default Nebula
-    return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><path d="M25 40 Q40 20 60 25 T80 50 Q75 75 55 70 T25 60 Z" fill="rgba(229,169,60,0.3)" stroke="#e5a93c" stroke-width="2"/><circle cx="48" cy="48" r="8" fill="#fff"/></svg>`;
+    return `<svg viewBox="0 0 100 100" class="obj-thumb-svg"><path d="M25 40 Q40 20 60 25 T80 50 Q75 75 55 70 T25 60 Z" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="2"/><circle cx="48" cy="48" r="8" fill="#fff"/></svg>`;
   }
 
   renderItemsListHtml() {

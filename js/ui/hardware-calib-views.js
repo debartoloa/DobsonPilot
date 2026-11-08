@@ -504,7 +504,7 @@ export class BacklashView {
         </button>
 
         <!-- Centering Shortcuts -->
-        <div class="config-card" style="background: rgba(229,169,60,0.05);">
+        <div class="config-card" style="background: rgba(168,85,247,0.06);">
           <div style="font-size: 12px; color: var(--gold-primary); font-weight: 700; margin-bottom: 8px;">
             🎮 Verifica Gioco con i Joystick:
           </div>
@@ -629,7 +629,7 @@ export class GearRatioCheckView {
         </div>
 
         <!-- Reminder Alert -->
-        <div class="config-card" style="border-color: rgba(241,196,15,0.4); background: rgba(241,196,15,0.06); padding: 10px 14px;">
+        <div class="config-card" style="border-color: rgba(168,85,247,0.4); background: rgba(168,85,247,0.08); padding: 10px 14px;">
           <div style="font-size: 12px; color: var(--gold-highlight); display: flex; align-items: center; gap: 8px;">
             <span>⚠️</span> <span>Ricorda di ripristinare la velocità massima al termine del test. Stima calcolata con incertezza indicativa ±5%.</span>
           </div>
