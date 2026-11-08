@@ -390,12 +390,20 @@ export const Screens = {
         <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
           Versione ${APP_VERSION} (Licenza MIT)
         </p>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--gold-text); margin-bottom: 16px;">
-          ${APP_CREDITS}. Sviluppato per sostituire l'app commerciale e controllare telescopi Dobson motorizzati (ESP32-S3 con 2 motori NEMA17 e driver TMC2209).
+        <p style="font-size: 14px; line-height: 1.6; color: var(--gold-text); margin-bottom: 12px;">
+          ${APP_CREDITS} (ESP32-S3 con 2 motori NEMA17 e driver TMC2209), realizzato <strong>esclusivamente a scopo di test e sperimentazione in ambito iOS</strong>.
         </p>
-        <a href="${GITHUB_REPO}" target="_blank" rel="noopener" class="btn-sm" style="display: inline-block; text-decoration: none;">
-          Repository Firmware CosmoPilot (GitHub)
-        </a>
+        <p style="font-size: 13px; line-height: 1.55; color: var(--text-muted); margin-bottom: 16px;">
+          Per l'utilizzo ufficiale, il supporto completo e l'ecosistema originale si rimanda al sito e all'applicazione ufficiale <strong>CosmoPilot</strong>.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+          <a href="https://cosmo-pilot.com" target="_blank" rel="noopener" class="btn-gold btn-block" style="text-decoration: none;">
+            🌐 Sito Ufficiale CosmoPilot (cosmo-pilot.com)
+          </a>
+          <a href="${GITHUB_REPO}" target="_blank" rel="noopener" class="btn-sm btn-block" style="text-decoration: none;">
+            Repository Firmware Open-Source (GitHub)
+          </a>
+        </div>
       </div>
 
       <div class="config-card">
