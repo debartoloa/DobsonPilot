@@ -8,6 +8,7 @@
  */
 
 import { appState } from "../state.js";
+import { i18n } from "../i18n/i18n.js";
 
 export class StatusBar {
   constructor(container) {
@@ -16,6 +17,7 @@ export class StatusBar {
   }
 
   init() {
+    const curLang = appState.settings.language || "it";
     this.container.innerHTML = `
       <div class="status-bar-wrapper">
         <div class="status-phases">
@@ -36,6 +38,13 @@ export class StatusBar {
         </div>
 
         <div class="status-extras">
+          <select id="top-lang-select" class="lang-pill-select" title="Lingua / Language" aria-label="Language">
+            <option value="it" ${curLang === "it" ? "selected" : ""}>🇮🇹 IT</option>
+            <option value="en" ${curLang === "en" ? "selected" : ""}>🇬🇧 EN</option>
+            <option value="es" ${curLang === "es" ? "selected" : ""}>🇪🇸 ES</option>
+            <option value="fr" ${curLang === "fr" ? "selected" : ""}>🇫🇷 FR</option>
+            <option value="pt" ${curLang === "pt" ? "selected" : ""}>🇵🇹 PT</option>
+          </select>
           <span class="tracking-badge" id="tracking-indicator" title="Inseguimento siderale">TRK</span>
           <button class="ble-pill-btn" id="btn-ble-status" title="Stato / Connessione Bluetooth">
             <svg class="ble-icon" viewBox="0 0 24 24" width="16" height="16">
@@ -50,6 +59,14 @@ export class StatusBar {
     // Listen for state changes
     appState.on("status_changed", (summary) => this.render(summary));
     appState.on("connection_changed", () => this.render(appState.getStatusSummary()));
+
+    // Hook language selector
+    const langSel = this.container.querySelector("#top-lang-select");
+    if (langSel) {
+      langSel.addEventListener("change", (e) => {
+        i18n.setLocale(e.target.value);
+      });
+    }
 
     // Hook click to open bluetooth page
     const btn = this.container.querySelector("#btn-ble-status");

@@ -4,6 +4,8 @@
  * and bottom Home button.
  */
 
+import { i18n } from "../i18n/i18n.js";
+
 export const ROUTE_PARENTS = {
   // Main level (back goes to home)
   "goto-menu": "home",
@@ -144,6 +146,7 @@ export class Router {
       } else if (typeof pageEl === "string") {
         this.container.innerHTML = pageEl;
       }
+      i18n.updateDom();
     }
   }
 }
