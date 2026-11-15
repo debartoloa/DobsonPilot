@@ -375,7 +375,7 @@ export class GearRatioView {
 
     const maxRatio = appState.settings.extendGearRatio ? 200 : 100;
     const curAz = appState.telescopeSettings.gearAz ?? 61.53;
-    const curAlt = appState.telescopeSettings.gearAlt ?? 6.4;
+    const curAlt = appState.telescopeSettings.gearAlt ?? 5.5;
 
     el.innerHTML = `
       ${makeHeader("Gear Ratio", this.onBack)}
@@ -582,7 +582,7 @@ export class GearRatioCheckView {
     this.element = el;
 
     const curAz = appState.telescopeSettings.gearAz ?? 61.53;
-    const curAlt = appState.telescopeSettings.gearAlt ?? 6.4;
+    const curAlt = appState.telescopeSettings.gearAlt ?? 5.5;
 
     el.innerHTML = `
       ${makeHeader("Gear Ratio Check", this.onBack)}
@@ -667,7 +667,7 @@ export class GearRatioCheckView {
         await this.queue.send(ProtocolCommands.showSettings());
         setTimeout(() => {
           const az = appState.telescopeSettings.gearAz ?? 61.53;
-          const alt = appState.telescopeSettings.gearAlt ?? 6.4;
+          const alt = appState.telescopeSettings.gearAlt ?? 5.5;
           el.querySelector("#lbl-check-cur-ratios").innerHTML = `Rapporti attuali letti: AZ <strong>${az}</strong> : 1 | ALT <strong>${alt}</strong> : 1`;
           alert("Impostazioni lette con successo!");
         }, 800);
@@ -677,7 +677,7 @@ export class GearRatioCheckView {
     });
 
     // Hold ALT measurement
-    this.bindHoldMeasurement(el.querySelector("#btn-measure-alt"), el.querySelector("#res-alt"), "UP", 90, () => appState.telescopeSettings.gearAlt ?? 6.4);
+    this.bindHoldMeasurement(el.querySelector("#btn-measure-alt"), el.querySelector("#res-alt"), "UP", 90, () => appState.telescopeSettings.gearAlt ?? 5.5);
     // Hold AZ measurement
     this.bindHoldMeasurement(el.querySelector("#btn-measure-az"), el.querySelector("#res-az"), "RIGHT", 360, () => appState.telescopeSettings.gearAz ?? 61.53);
 

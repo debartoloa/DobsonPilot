@@ -42,7 +42,7 @@ class AppState {
     const defaults = {
       firmwareVersion: "Sconosciuta",
       gearAz: 61.53,
-      gearAlt: 6.4,
+      gearAlt: 5.5,
       idle: null,
       invAlt: 0,
       invAz: 0,

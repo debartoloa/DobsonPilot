@@ -36,7 +36,7 @@
 - **Calibrazioni Hardware**:
   - **Joystick Calib**: calibrazione punto neutro e corsa massima.
   - **Directions Setup**: procedura guidata interattiva per l'inversione degli assi Alt/Az.
-  - **Gear Ratio & Backlash**: configurazione rapporti di riduzione anche decimali (valori predefiniti custom: **AZ `61.53:1`**, **ALT `6.4:1`**) e compensazione del gioco meccanico (0–4000 arcsec).
+  - **Gear Ratio & Backlash**: configurazione rapporti di riduzione anche decimali (valori predefiniti custom: **AZ `61.53:1`**, **ALT `5.5:1`**) e compensazione del gioco meccanico (0–4000 arcsec).
   - **Gear Ratio Check**: misura empirica dei tempi di rotazione a velocità costante (4.0°/s) con cronometro interattivo.
   - **Factory Reset**: ripristino dei parametri NVS con pressione prolungata di sicurezza (3 secondi).
 - **Cataloghi Offline, Tour Osservativi & Modalità Notturna**:
@@ -101,7 +101,8 @@ DobsonPilot/
 │   ├── icons/              # Icone PWA (192x192, 512x512)
 │   └── img/                # Risorse grafiche
 ├── docs/
-│   └── ARCHITECTURE.md     # Documentazione tecnica architetturale
+│   ├── ARCHITECTURE.md     # Documentazione tecnica architetturale
+│   └── ROADMAP.md          # Piano migliorie future (tracking, meccanica, PWA)
 ├── vendor/                 # Libreria astronomica locale (zero dipendenze CDN)
 ├── test/                   # Suite di 317 test automatici (Fasi 1–10)
 ├── README.md

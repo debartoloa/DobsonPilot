@@ -49,7 +49,7 @@ async function runPhase8Tests() {
   const rawDir0 = ProtocolCommands.rawDirCalibResult(false);
   const rawDir1 = ProtocolCommands.rawDirCalibResult(true);
   const rawNext = ProtocolCommands.rawNext();
-  const cmdGear = ProtocolCommands.setGearRatio(61.53, 6.4);
+  const cmdGear = ProtocolCommands.setGearRatio(61.53, 5.5);
   const cmdBacklash = ProtocolCommands.backlashCalib(350, 420);
   const cmdReset = ProtocolCommands.factoryReset();
 
@@ -59,7 +59,7 @@ async function runPhase8Tests() {
   assertEquals(rawDir0, "DIR_CALIB_RESULT 0", "Messaggio grezzo DIR_CALIB_RESULT 0 senza CMD");
   assertEquals(rawDir1, "DIR_CALIB_RESULT 1", "Messaggio grezzo DIR_CALIB_RESULT 1 senza CMD");
   assertEquals(rawNext, "NEXT", "Messaggio grezzo NEXT senza CMD");
-  assertEquals(cmdGear, "CMD SET_GEAR_RATIO 61.53 6.4", "Comando SET_GEAR_RATIO con decimali valido");
+  assertEquals(cmdGear, "CMD SET_GEAR_RATIO 61.53 5.5", "Comando SET_GEAR_RATIO con decimali valido");
   assertEquals(cmdBacklash, "CMD BACKLASH_CALIB 350 420", "Comando BACKLASH_CALIB valido");
   assertEquals(cmdReset, "CMD FACTORY_RESET", "Comando FACTORY_RESET valido");
 
@@ -128,7 +128,7 @@ async function runPhase8Tests() {
   console.log("  Esecuzione CMD FACTORY_RESET...");
   await queue.send(cmdReset);
   assertEquals(mock.gearAz, 61.53, "Mock: gearAz ripristinato a 61.53");
-  assertEquals(mock.gearAlt, 6.4, "Mock: gearAlt ripristinato a 6.4");
+  assertEquals(mock.gearAlt, 5.5, "Mock: gearAlt ripristinato a 5.5");
   assertEquals(mock.invAlt, 0, "Mock: invAlt ripristinato a 0");
   assertEquals(mock.invAz, 0, "Mock: invAz ripristinato a 0");
   assertEquals(mock.backlashAz, 0, "Mock: backlashAz azzerato");

@@ -115,12 +115,12 @@ async function runTests() {
   assertEquals(parsedRadec.dec.deg, -5, "RADEC Dec deg");
 
   // SHOW_SETTINGS line parser
-  const gearLine = new TextEncoder().encode("GEAR 61.53 6.4");
+  const gearLine = new TextEncoder().encode("GEAR 61.53 5.5");
   const parsedGear = ProtocolParser.parse(gearLine);
   assertEquals(parsedGear.type, "SETTING_LINE", "Tipo SETTING_LINE riconosciuto");
   assertEquals(parsedGear.key, "GEAR", "Chiave GEAR");
   assertEquals(parsedGear.az, 61.53, "Rapporto AZ 61.53");
-  assertEquals(parsedGear.alt, 6.4, "Rapporto ALT 6.4");
+  assertEquals(parsedGear.alt, 5.5, "Rapporto ALT 5.5");
 
   // 6. Integration: MockTransport + CommandQueue Handshake
   console.log("\n6. Test Integrazione MockTransport + CommandQueue Handshake:");

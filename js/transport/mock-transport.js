@@ -28,7 +28,7 @@ export class MockTransport extends Transport {
 
     // Hardware parameters
     this.gearAz = 61.53;
-    this.gearAlt = 6.4;
+    this.gearAlt = 5.5;
     this.invAlt = 0;
     this.invAz = 0;
     this.backlashAz = 0;
@@ -467,7 +467,7 @@ export class MockTransport extends Transport {
 
     if (cmd === "CMD FACTORY_RESET") {
       this.gearAz = 61.53;
-      this.gearAlt = 6.4;
+      this.gearAlt = 5.5;
       this.invAlt = 0;
       this.invAz = 0;
       this.backlashAz = 0;

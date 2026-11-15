@@ -10,7 +10,7 @@ Tutte le modifiche rilevanti a **Dobson Pilot** sono documentate in questo file 
 - Supporto Web Bluetooth (`ble-transport.js`), simulatore offline (`mock-transport.js`) e coda comandi serializzata con handshake `READY`/`BUSY` (`command-queue.js`).
 - Funzionalità complete di puntamento GoTo: Cataloghi offline (*Sistema Solare*, *Messier M1–M110*, *Stelle*, *Galassie*, *Nebulose*, *Oggetti Personalizzati*), *Random Target*, *Manual GoTo*, *Observing Tours* e *Astronomy Quiz Game*.
 - Procedure di allineamento *1-Star* e *2-Star* con calcolo separazione angolare e movimento libero (*App Joystick*, *Scope Joystick*, *Hand Move*).
-- Calibrazioni hardware (*Joystick Calib*, *Directions*, *Gear Ratio*, *Backlash*, *Gear Ratio Check*, *Factory Reset*) con rapporti di riduzione predefiniti `61.53:1` (Azimuth) e `6.4:1` (Altitudine).
+- Calibrazioni hardware (*Joystick Calib*, *Directions*, *Gear Ratio*, *Backlash*, *Gear Ratio Check*, *Factory Reset*) con rapporti di riduzione predefiniti `61.53:1` (Azimuth) e `5.5:1` (Altitudine).
 - Design *Deep Space & Glassmorphism* Mobile-First, sfondo stellato procedurale (`starfield.js`) e *Night Mode* rosso scuro su 5 livelli.
 - Supporto multilingua (IT, EN, ES, FR, PT) con traduzione integrale della UI in italiano.
 - Suite di 317 test automatici (`test/test-phase1.js` – `test/test-phase10.js`).

@@ -88,7 +88,7 @@ async function runPhase3Tests() {
   assert(s.lastUpdated !== null, "Lettura impostazioni completata e registrata");
   assertEquals(s.firmwareVersion, "2.0", "Firmware version corretta");
   assertEquals(s.gearAz, 61.53, "Rapporto riduzione Azimuth letto: 61.53");
-  assertEquals(s.gearAlt, 6.4, "Rapporto riduzione Altezza letto: 6.4");
+  assertEquals(s.gearAlt, 5.5, "Rapporto riduzione Altezza letto: 5.5");
   assertEquals(s.invAlt, 0, "Inversione ALT letta: 0");
   assertEquals(s.invAz, 0, "Inversione AZ letta: 0");
   assertEquals(s.maxSpeed, 40, "Velocità massima letta: 40 (4.0 deg/s)");
