@@ -2,6 +2,17 @@
 
 Tutte le modifiche rilevanti a **Dobson Pilot** sono documentate in questo file secondo il formato [Keep a Changelog](https://keepachangelog.com/it/1.0.0/) e il [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-11-15
+
+### Added
+- Nuova interfaccia definitiva **Observatory Cockpit Mobile-First** con Home Dashboard telemetrica, radar zenitale animato, lettura live `RA / DEC` e badge stato (`BLE`, `SYNC`, `ALIGN`, `TRK`).
+- **Dock di navigazione inferiore persistente** (*Cockpit*, *Cielo*, *Guida*, *Allinea*, *Setup*) ottimizzata per l'uso con una mano su smartphone.
+- Barra di accesso rapido in Home (*Sistema Solare*, *Casuale*, *Tour*, *Info*) e documento [docs/ROADMAP.md](docs/ROADMAP.md).
+
+### Changed
+- Tutti i sottomenu trasformati in griglia **Bento a 2 colonne** ad alto contrasto ed ergonomia touch.
+- Rapporto di riduzione predefinito per l'asse Altitudine (ALT) aggiornato a **`5.5:1`** (puleggia 55T / 10T).
+
 ## [1.0.0] - 2026-11-15
 
 ### Added

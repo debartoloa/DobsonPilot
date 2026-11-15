@@ -99,6 +99,22 @@ export class Router {
         }
       }
     });
+
+    // Also handle persistent bottom dock navigation if present in DOM
+    if (typeof document !== "undefined") {
+      const dock = document.getElementById("cockpit-dock");
+      if (dock) {
+        dock.addEventListener("click", (e) => {
+          const routeBtn = e.target.closest("[data-route]");
+          if (routeBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const route = routeBtn.getAttribute("data-route");
+            if (route) this.navigate(route);
+          }
+        });
+      }
+    }
   }
 
   register(routeId, renderFn) {
@@ -147,6 +163,29 @@ export class Router {
         this.container.innerHTML = pageEl;
       }
       i18n.updateDom();
+      this.updateDockActiveState();
     }
+  }
+
+  updateDockActiveState() {
+    if (typeof document === "undefined") return;
+    const dock = document.getElementById("cockpit-dock");
+    if (!dock) return;
+
+    const r = this.currentRoute || "home";
+    let group = "home";
+    if (r === "goto-menu" || r.startsWith("catalog") || ["tours", "game", "random", "manual", "solar-system"].includes(r)) {
+      group = "sky";
+    } else if (r.startsWith("free-")) {
+      group = "drive";
+    } else if (r === "calib-menu" || ["calib-auto-sync", "calib-1star", "calib-2star"].includes(r)) {
+      group = "align";
+    } else if (r !== "home") {
+      group = "setup";
+    }
+
+    dock.querySelectorAll(".dock-tab").forEach(tab => {
+      tab.classList.toggle("active", tab.getAttribute("data-dock-group") === group);
+    });
   }
 }
