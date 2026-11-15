@@ -4,7 +4,7 @@
  * to ensure newly deployed code loads immediately.
  */
 
-const CACHE_NAME = "dobson-pilot-exp-v11.0";
+const CACHE_NAME = "dobson-pilot-v11.0";
 
 const ASSETS_TO_CACHE = [
   "./",
