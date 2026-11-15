@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Logs & Debug
+*.log
+npm-debug.log*
+
+# Environment & Secrets
+.env
+.env.local
+*.key
+*.pem
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
