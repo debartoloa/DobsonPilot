@@ -43,46 +43,110 @@ function renderFooterHome() {
 }
 
 export const Screens = {
-  // 1. HOME SCREEN
+  // 1. HOME SCREEN — Observatory Cockpit Dashboard
   home() {
     const el = document.createElement("div");
-    el.className = "screen-container";
+    el.className = "screen-container cockpit-home";
+    const status = appState.getStatusSummary();
+    const pad = (n) => String(Math.abs(n ?? 0)).padStart(2, "0");
+    const ra = appState.currentRa || { h: 0, m: 0, s: 0 };
+    const dec = appState.currentDec || { deg: 0, min: 0, sec: 0 };
+    const raStr = `${pad(ra.h)}h ${pad(ra.m)}m ${pad(ra.s)}s`;
+    const decSign = dec.deg < 0 ? "-" : "+";
+    const decStr = `${decSign}${pad(dec.deg)}° ${pad(dec.min)}' ${pad(dec.sec)}"`;
+
+    const connLabel = status.connected
+      ? (status.isMock ? "Simulatore Mock" : "BLE Connesso")
+      : "Non Connesso";
+
     el.innerHTML = `
-      <div class="home-brand">
-        <h1 class="home-logo-title">${APP_NAME}</h1>
-        <div class="home-logo-underline"></div>
-      </div>
-
-      <div class="menu-list">
-        <button class="menu-btn" data-route="goto-menu">
-          <div class="menu-btn-icon">${ICONS.goto}</div>
-          <div class="menu-btn-text">GoTo</div>
-        </button>
-
-        <button class="menu-btn" data-route="calib-menu">
-          <div class="menu-btn-icon">${ICONS.calib}</div>
-          <div class="menu-btn-text">Calib</div>
-        </button>
-
-        <button class="menu-btn" data-route="free-menu">
-          <div class="menu-btn-icon">${ICONS.free}</div>
-          <div class="menu-btn-text">Free</div>
-        </button>
-
-        <button class="menu-btn" data-route="config-menu">
-          <div class="menu-btn-icon">${ICONS.config}</div>
-          <div class="menu-btn-text">Config</div>
-        </button>
-
-        <button class="menu-btn" data-route="about">
-          <div class="menu-btn-icon">${ICONS.about}</div>
-          <div class="menu-btn-text">About</div>
+      <div class="cockpit-top-brand">
+        <div>
+          <h1 class="home-logo-title cockpit-title">${APP_NAME}</h1>
+          <div class="cockpit-subtitle">Observatory Cockpit • iOS WebBLE</div>
+        </div>
+        <button class="cockpit-ble-chip ${status.connected ? "is-online" : ""}" data-route="config-bluetooth" title="Impostazioni Bluetooth">
+          <span class="chip-dot"></span>
+          <span>${connLabel}</span>
         </button>
       </div>
 
-      <div class="home-bottom-actions">
-        <button class="ble-main-btn" data-route="config-bluetooth" title="Impostazioni Bluetooth">
-          ${ICONS.ble}
+      <!-- Live Telescope Telemetry Hero Card -->
+      <div class="cockpit-hero-card">
+        <div class="cockpit-hero-radar" aria-hidden="true">
+          <svg viewBox="0 0 120 120" class="radar-svg">
+            <circle cx="60" cy="60" r="54" class="radar-ring"/>
+            <circle cx="60" cy="60" r="36" class="radar-ring radar-ring-dashed"/>
+            <circle cx="60" cy="60" r="18" class="radar-ring"/>
+            <line x1="60" y1="4" x2="60" y2="116" class="radar-axis"/>
+            <line x1="4" y1="60" x2="116" y2="60" class="radar-axis"/>
+            <circle cx="76" cy="42" r="5" class="radar-target-dot"/>
+            <circle cx="76" cy="42" r="11" class="radar-target-pulse"/>
+          </svg>
+        </div>
+
+        <div class="cockpit-hero-data">
+          <div class="cockpit-hero-label">Telemetria Telescopio</div>
+          <div class="cockpit-coords-grid">
+            <div class="coord-pill">
+              <span class="coord-k">RA</span>
+              <strong class="coord-v" id="cockpit-ra-val">${raStr}</strong>
+            </div>
+            <div class="coord-pill">
+              <span class="coord-k">DEC</span>
+              <strong class="coord-v" id="cockpit-dec-val">${decStr}</strong>
+            </div>
+          </div>
+
+          <div class="cockpit-readiness-row">
+            <span class="ready-badge ${status.connected ? "ok" : ""}">BLE</span>
+            <span class="ready-badge ${status.synced ? "ok" : ""}">SYNC</span>
+            <span class="ready-badge ${status.aligned ? "ok" : ""}">ALIGN</span>
+            <span class="ready-badge ${status.tracking ? "trk" : ""}">TRK ${status.tracking ? "ON" : "OFF"}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2x2 Observatory Bento Grid -->
+      <div class="cockpit-bento-grid">
+        <button class="bento-card bento-sky" data-route="goto-menu">
+          <div class="bento-icon-wrap">${ICONS.goto}</div>
+          <div class="bento-title">Cielo & GoTo</div>
+          <div class="bento-desc">Cataloghi, Pianeti, Tour, Manuale</div>
+        </button>
+
+        <button class="bento-card bento-drive" data-route="free-menu">
+          <div class="bento-icon-wrap">${ICONS.free}</div>
+          <div class="bento-title">Guida Libera</div>
+          <div class="bento-desc">Joystick App, Scope, Tubo Libero</div>
+        </button>
+
+        <button class="bento-card bento-align" data-route="calib-menu">
+          <div class="bento-icon-wrap">${ICONS.calib}</div>
+          <div class="bento-title">Allineamento</div>
+          <div class="bento-desc">Auto Sync, 1-Stella, 2-Stelle</div>
+        </button>
+
+        <button class="bento-card bento-setup" data-route="config-menu">
+          <div class="bento-icon-wrap">${ICONS.config}</div>
+          <div class="bento-title">Setup & Hardware</div>
+          <div class="bento-desc">Bluetooth, Telescopio, Calibrazioni</div>
+        </button>
+      </div>
+
+      <!-- Quick-Launch Strip -->
+      <div class="cockpit-quick-strip">
+        <button class="quick-chip" data-route="solar-system">
+          <span>🪐</span><span>Sistema Solare</span>
+        </button>
+        <button class="quick-chip" data-route="random">
+          <span>🎲</span><span>Casuale</span>
+        </button>
+        <button class="quick-chip" data-route="tours">
+          <span>🗺️</span><span>Tour</span>
+        </button>
+        <button class="quick-chip" data-route="about">
+          <span>ℹ️</span><span>Info</span>
         </button>
       </div>
     `;

@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.svg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="./css/style.css?v=10.12">
+  <link rel="stylesheet" href="./css/style.css?v=11.0">
 
   <!-- Startup Diagnostic & Cache Reset Utility -->
   <script>
@@ -76,6 +76,30 @@
         <div style="font-size:13px;color:#94a3b8;margin-top:8px;">Avvio in corso...</div>
       </div>
     </main>
+
+    <!-- Persistent Mobile-First Bottom Cockpit Dock -->
+    <nav id="cockpit-dock" class="cockpit-dock" aria-label="Navigazione principale">
+      <button class="dock-tab active" data-route="home" data-dock-group="home">
+        <span class="dock-icon">🔭</span>
+        <span class="dock-label">Cockpit</span>
+      </button>
+      <button class="dock-tab" data-route="goto-menu" data-dock-group="sky">
+        <span class="dock-icon">🌌</span>
+        <span class="dock-label">Cielo</span>
+      </button>
+      <button class="dock-tab" data-route="free-app-joystick" data-dock-group="drive">
+        <span class="dock-icon">🕹️</span>
+        <span class="dock-label">Guida</span>
+      </button>
+      <button class="dock-tab" data-route="calib-menu" data-dock-group="align">
+        <span class="dock-icon">✨</span>
+        <span class="dock-label">Allinea</span>
+      </button>
+      <button class="dock-tab" data-route="config-menu" data-dock-group="setup">
+        <span class="dock-icon">⚙️</span>
+        <span class="dock-label">Setup</span>
+      </button>
+    </nav>
   </div>
 
   <!-- Onboarding Modal (Terms & Conditions / Language on first run) -->
@@ -96,6 +120,6 @@
   </div>
 
   <!-- App Entrypoint with Version Cache Buster -->
-  <script type="module" src="./js/app.js?v=10.12"></script>
+  <script type="module" src="./js/app.js?v=11.0"></script>
 </body>
 </html>
